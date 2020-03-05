@@ -4,6 +4,9 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 CustomSort is a laravel package to give ability to manually sort items of any Eloquent Model.
+
+<img src="https://i.imgur.com/9UMecVz.gif" />
+
 ## Installation
 
 Via Composer
@@ -42,15 +45,20 @@ Route::get('/posts', 'PostsController@index');
 Route::put('/posts/updateCustomSort', 'PostsController@updateCustomSort');
 ```
 #### Controller
-To set the custom sort order, use `HasCustomSortEndpoint` trait in your controller. This will handle the logic for `updateCustomSort` request.
+To set the custom sort order, use `HasCustomSortEndpoint` trait in your controller. This will handle the logic for `updateCustomSort` request,
+and set `$model` property to denote which model to work with.
 ```php
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
+use Arni\CustomSort\Traits\HasCustomSortEndpoint;
 
 class PostsController
 {
     use HasCustomSortEndpoint;
+
+    public $model = Post::class;
     ...
 }
 
@@ -120,10 +128,10 @@ onEnd: function ({ oldIndex, newIndex }){
 
 // prepare payload
 preparePayload: function() {
-  const order = this.posts.map((item, key) => {
+  const order = posts.map((item, key) => {
     return {
       id: item.id,
-      priority: items.length - key
+      priority: posts.length - key
     }
   })
   return { custom_sort: order }
