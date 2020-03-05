@@ -1,6 +1,6 @@
 {
     "name": "arneetsingh/customsort",
-    "description": "Gives ability to manually sort items in any model",
+    "description": "A laravel package that gives ability to manually sort items in any model",
     "license": "MIT",
     "authors": [
         {

@@ -2,8 +2,6 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
 
 CustomSort is a laravel package to give ability to manually sort items of any Eloquent Model.
 ## Installation
@@ -58,7 +56,7 @@ class PostsController
 
 ```
 ## Example
-1. Setting the custom sort order
+#### Setting the custom sort order
 
 Lets say we have 5 posts in our Post model.
 and we want to set them in order of ids - 2,4,1,5,3
@@ -91,7 +89,8 @@ Payload:
 	]
 }
 ```
-2. Fetch posts in manual order.
+
+#### Fetch posts in manual order.
 
 As mentioned above we have `orderByCustomSort()` on Post model.
 We can use that to get posts in manually set order, or
